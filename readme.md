@@ -1,3 +1,7 @@
+## Teraform AWS ElastiCache Redis Cluster
+
+This module creates a cluster mode enabled redis elasticache cluster.
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
