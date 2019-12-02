@@ -33,7 +33,7 @@ variable "name" {
 }
 
 variable "replicas_per_node_group" {
-  default     = 2
+  default     = 1
   type        = number
   description = "Specify the number of replica nodes in each node group."
 }
@@ -41,7 +41,7 @@ variable "replicas_per_node_group" {
 variable "num_node_groups" {
   description = "Specify the number of node groups (shards) for this Redis replication group."
   type        = number
-  default     = 1
+  default     = 2
 }
 
 variable "automatic_failover_enabled" {
@@ -100,4 +100,10 @@ variable "tags" {
   description = "Tags for redis nodes"
   type        = map(string)
   default     = {}
+}
+
+variable "at_rest_encryption_enabled" {
+  default     = true
+  type        = bool
+  description = "Whether to enable encryption at rest."
 }

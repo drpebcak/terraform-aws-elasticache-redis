@@ -18,6 +18,7 @@ resource "aws_elasticache_replication_group" "redis" {
   snapshot_window               = var.snapshot_window
   snapshot_retention_limit      = var.snapshot_retention_limit
   tags                          = merge(map("Name", format("tf-elasticache-%s-%s", var.name, lookup(data.aws_vpc.vpc.tags, "Name", ""))), var.tags)
+  at_rest_encryption_enabled    = var.at_rest_encryption_enabled
 
   cluster_mode {
     replicas_per_node_group = var.replicas_per_node_group
