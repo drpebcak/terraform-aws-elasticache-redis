@@ -41,6 +41,11 @@ resource "aws_elasticache_parameter_group" "parameter_group" {
     }
   }
 
+  parameter {
+    name  = "cluster-enabled"
+    value = "yes"
+  }
+
   lifecycle {
     create_before_destroy = true
   }
