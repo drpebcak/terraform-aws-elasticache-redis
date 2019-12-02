@@ -17,7 +17,7 @@ This module creates a cluster mode enabled redis elasticache cluster.
 | maintenance\_window | Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period | string | `"fri:08:00-fri:09:00"` | no |
 | name | Name for the Redis replication group. | string | n/a | yes |
 | node\_type | Instance type to use for creating the Redis cache clusters | string | `"cache.m5.large"` | no |
-| num\_node\_groups | Specify the number of node groups (shards) for this Redis replication group. | number | `"2"` | no |
+| num\_node\_groups | Specify the number of node groups (shards) for this Redis replication group. | number | `"1"` | no |
 | parameters | additional parameters modified in parameter group | list(map(any)) | `[]` | no |
 | port |  | number | `"6379"` | no |
 | replicas\_per\_node\_group | Specify the number of replica nodes in each node group. | number | `"1"` | no |
