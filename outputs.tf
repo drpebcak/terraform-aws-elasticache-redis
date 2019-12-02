@@ -15,7 +15,7 @@ output "id" {
 }
 
 output "port" {
-  value = var.redis_port
+  value = var.port
 }
 
 output "endpoint" {
