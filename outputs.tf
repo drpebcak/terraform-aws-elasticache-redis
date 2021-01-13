@@ -7,7 +7,8 @@ output "parameter_group" {
 }
 
 output "redis_subnet_group_name" {
-  value = aws_elasticache_subnet_group.subnet_group.name
+  value     = aws_elasticache_subnet_group.subnet_group.name
+  sensitive = true
 }
 
 output "id" {
