@@ -7,6 +7,7 @@ resource "aws_elasticache_replication_group" "redis" {
   replication_group_description = "Terraform-managed ElastiCache replication group for ${var.name}-${data.aws_vpc.vpc.tags["Name"]}"
   node_type                     = var.node_type
   automatic_failover_enabled    = var.automatic_failover_enabled
+  multi_az_enabled              = var.multi_az_enabled
   engine_version                = var.engine_version
   port                          = var.port
   auto_minor_version_upgrade    = var.auto_minor_version_upgrade
