@@ -17,13 +17,13 @@ variable "auto_minor_version_upgrade" {
 
 variable "allowed_cidr" {
   description = "A list of IP address CIDR's to allow access to."
-  type        = list(string)
+  type        = tolist([string])
   default     = []
 }
 
 variable "allowed_security_groups" {
   description = "A list of Security Group ID's to allow access to."
-  type        = list(string)
+  type        = tolist([string])
   default     = []
 }
 
@@ -66,7 +66,7 @@ variable "port" {
 }
 
 variable "subnets" {
-  type        = list(string)
+  type        = tolist([string])
   description = "List of VPC Subnet IDs for the cache subnet group"
 }
 
@@ -74,12 +74,12 @@ variable "subnets" {
 variable "engine_version" {
   description = "Redis version to use"
   type        = string
-  default     = "5.0.5"
+  default     = "6.x"
 }
 
 variable "parameters" {
   description = "additional parameters modified in parameter group"
-  type        = list(map(any))
+  type        = list(tomap({any}))
   default     = []
 }
 
@@ -103,7 +103,7 @@ variable "snapshot_retention_limit" {
 
 variable "tags" {
   description = "Tags for redis nodes"
-  type        = map(string)
+  type        = tomap({string})
   default     = {}
 }
 
