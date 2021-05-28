@@ -35,7 +35,7 @@ resource "aws_elasticache_parameter_group" "parameter_group" {
   # Strip the patch version from redis_version var
   family = "redis${replace(var.engine_version, "/\\.[\\d]+$/", "")}"
   dynamic "parameter" {
-    for_each = var.parameters
+    for_each = tolist(var.parameters)
     content {
       name  = parameter.value.name
       value = parameter.value.value
@@ -54,7 +54,7 @@ resource "aws_elasticache_parameter_group" "parameter_group" {
 
 resource "aws_elasticache_subnet_group" "subnet_group" {
   name       = replace(format("%.255s", lower(replace("tf-redis-${var.name}-${data.aws_vpc.vpc.tags["Name"]}", "_", "-"))), "/\\s/", "-")
-  subnet_ids = var.subnets
+  subnet_ids = tolist(var.subnets)
 }
 
 resource "aws_security_group" "security_group" {
@@ -68,12 +68,12 @@ resource "aws_security_group" "security_group" {
 }
 
 resource "aws_security_group_rule" "ingress" {
-  count                    = length(var.allowed_security_groups)
+  count                    = length(tolist(var.allowed_security_groups))
   type                     = "ingress"
   from_port                = var.port
   to_port                  = var.port
   protocol                 = "tcp"
-  source_security_group_id = element(var.allowed_security_groups, count.index)
+  source_security_group_id = element(tolist(var.allowed_security_groups), count.index)
   security_group_id        = aws_security_group.security_group.id
 }
 
