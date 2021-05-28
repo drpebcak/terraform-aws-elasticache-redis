@@ -17,13 +17,11 @@ variable "auto_minor_version_upgrade" {
 
 variable "allowed_cidr" {
   description = "A list of IP address CIDR's to allow access to."
-  type        = tolist([string])
   default     = []
 }
 
 variable "allowed_security_groups" {
   description = "A list of Security Group ID's to allow access to."
-  type        = tolist([string])
   default     = []
 }
 
@@ -66,7 +64,6 @@ variable "port" {
 }
 
 variable "subnets" {
-  type        = tolist([string])
   description = "List of VPC Subnet IDs for the cache subnet group"
 }
 
@@ -79,7 +76,6 @@ variable "engine_version" {
 
 variable "parameters" {
   description = "additional parameters modified in parameter group"
-  type        = list(tomap({any}))
   default     = []
 }
 
@@ -103,7 +99,6 @@ variable "snapshot_retention_limit" {
 
 variable "tags" {
   description = "Tags for redis nodes"
-  type        = tomap({string})
   default     = {}
 }
 
