@@ -74,7 +74,7 @@ variable "subnets" {
 variable "engine_version" {
   description = "Redis version to use"
   type        = string
-  default     = "5.0.5"
+  default     = "6.x"
 }
 
 variable "parameters" {
